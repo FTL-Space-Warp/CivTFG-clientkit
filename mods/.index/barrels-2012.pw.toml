@@ -1,0 +1,16 @@
+filename = 'barrels_2012-2.1.jar'
+name = 'Barrels 2012'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '98ef976a9b356dce459fdd249ff19ad14fd375dd'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4944918
+project-id = 662156

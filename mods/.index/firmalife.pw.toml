@@ -1,0 +1,16 @@
+filename = 'Firmalife-1.20.1-2.1.26.jar'
+name = 'FirmaLife'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '679e75ed6d8180457f0593a1e3f9b0077a1dca9c'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7400700
+project-id = 453394

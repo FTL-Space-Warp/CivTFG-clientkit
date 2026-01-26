@@ -1,0 +1,16 @@
+filename = 'TFCHotOrNot-1.20.1-1.0.13.jar'
+name = 'TFC Hot or Not'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '383507ce61eaa1fe9368915536de8b3685517728'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6047294
+project-id = 499096

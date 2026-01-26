@@ -1,0 +1,16 @@
+filename = 'tfclunchbox-1.20.1-1.0.0.26.jar'
+name = 'TFC Lunch Box'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = 'e9ddf2c2ea8a3458c06ef31712543d201a1cb499'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7018662
+project-id = 1283445

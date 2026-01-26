@@ -1,0 +1,16 @@
+filename = 'adaptive_performance_tweaks_player_1.20.1-11.5.0.jar'
+name = 'Adaptive Performance Tweaks: Player Login Optimization and Protection'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '1d571233979de03bd0a07d805f13e98abc7e5c31'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6939061
+project-id = 563963

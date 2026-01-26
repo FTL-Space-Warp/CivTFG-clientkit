@@ -1,0 +1,16 @@
+filename = 'Tumbleweed-forge-1.20.1-0.5.5.jar'
+name = 'Tumbleweed'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'd3c2504eb77c98c6e6af49370a8370440aaded9a'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4891607
+project-id = 245028

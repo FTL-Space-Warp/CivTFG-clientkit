@@ -1,0 +1,16 @@
+filename = 'tfc_textile-1.0.5.jar'
+name = 'TFC Textile (Legacy)'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '0f68aff31c58bcfd12306218766d24022d6e78db'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5761738
+project-id = 1085858

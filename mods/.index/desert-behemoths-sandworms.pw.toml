@@ -1,0 +1,16 @@
+filename = 'sandworm_mod-1.1.1.jar'
+name = 'Desert Behemoths: Sandworms!'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'c55788dcd8a1d24f4b41f20d40f5b670b163950a'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5600383
+project-id = 1066153

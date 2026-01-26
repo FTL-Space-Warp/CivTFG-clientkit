@@ -1,0 +1,16 @@
+filename = 'kubejs_tfc-1.20.1-1.3.3.jar'
+name = 'KubeJS TFC'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '5561aa3db97bf01d0b02e09164276bba9b8f7fd8'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6996502
+project-id = 841001

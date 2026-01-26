@@ -1,0 +1,16 @@
+filename = 'horsescanswim-1.0.1.jar'
+name = 'Horses can Swim'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '9fa3a8acef83a37918fc38ca4d05a3211bc95a02'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4875244
+project-id = 937337

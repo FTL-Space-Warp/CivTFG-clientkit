@@ -1,0 +1,16 @@
+filename = 'MoreRed-CCT-Compat-1.20.1-1.0.0.jar'
+name = 'More Red x CC:Tweaked Compat'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'ed57300c9b6e335af2a6a386fc2d373b4b5daaf4'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4650653
+project-id = 867286

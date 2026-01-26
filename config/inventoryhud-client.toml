@@ -56,7 +56,7 @@
 #Settings for Potions HUD
 [potionshud]
 	#Is Potions HUD enabled
-	Potions = true
+	Potions = false
 	#Potion HUD alpha
 	#Range: 0 ~ 100
 	potAlpha = 100
@@ -73,9 +73,9 @@
 	#Show hidden effects
 	showHiddenEffects = true
 	#Disable icons for effects in this list
-	effectsBlackList = []
+	effectsBlackList = ["xaeroworldmap:no_world_map", "xaerominimap:no_minimap"]
 	#Show Potion HUD when debug menu is open
-	potWithDebug = true
+	potWithDebug = false
 	#Show all levels of effects
 	potionLevels = false
 

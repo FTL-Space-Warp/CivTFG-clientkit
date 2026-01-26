@@ -1,0 +1,16 @@
+filename = 'tfcchannelcasting-0.2.3-beta.jar'
+name = 'TFC Casting with Channels!'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = '346a53a23f069d8f9b16f14ecef3b9ab247d0e49'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5046696
+project-id = 820815

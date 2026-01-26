@@ -1,0 +1,16 @@
+filename = 'createpickywheels-forge-1.20.1-6.0.6-2.jar'
+name = 'Create Picky Wheels'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '698050b3f98b8fd9390b810741cf0eb08fee25ed'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6932328
+project-id = 866839

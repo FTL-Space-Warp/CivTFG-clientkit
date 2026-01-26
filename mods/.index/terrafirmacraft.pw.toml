@@ -1,0 +1,16 @@
+filename = 'TerraFirmaCraft-Forge-1.20.1-3.2.19.jar'
+name = 'TerraFirmaCraft'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = '107d4aec4694c509ea7ea8f3963478ae8002f46e'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6990923
+project-id = 302973

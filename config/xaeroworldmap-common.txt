@@ -2,3 +2,4 @@ allowCaveModeOnServer:true
 allowNetherCaveModeOnServer:true
 registerStatusEffects:true
 everyoneTracksEveryone:false
+mapItemId:civ_tfg:pocket_gps

@@ -1,0 +1,16 @@
+filename = 'simplystacked-1.20-1.0.jar'
+name = 'Simply Stacked Dimensions'
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20', '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'c400ff4166daa70df65f7dfa65e2c06c9b5d70c9'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5562948
+project-id = 523416

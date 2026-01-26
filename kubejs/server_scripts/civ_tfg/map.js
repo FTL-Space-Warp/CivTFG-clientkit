@@ -55,38 +55,53 @@ ServerEvents.recipes(event => {
 	})
 })
 
+
+function lockMap(player) {
+	player.potionEffects.add("xaerominimap:no_minimap", -1, 0, false, false)
+	player.potionEffects.add("xaeroworldmap:no_world_map", -1, 0, false, false)
+	player.persistentData.minimap = false
+}
+
+
+function unlockMap(player) {
+	player.removeEffect("xaerominimap:no_minimap")
+	player.removeEffect("xaeroworldmap:no_world_map")
+	player.persistentData.minimap = true
+}
+
+
 // Enable map when Pocket GPS is equipped
-PlayerEvents.inventoryChanged(event=> {
+PlayerEvents.tick(event => {
 	const player = event.player
 
-	// Initialize minimap flag
-	if(player.persistentData.minimap == null) player.persistentData.minimap = true
 	
 	// Loop trough the hotbar
-	for (let slot = 0; slot < 9; slot++) {
-		let item = player.inventory.getItem(slot);
-
-		if (item.is('civ_tfg:pocket_gps' )) {
-			if (!player.persistentData.minimap) {
-				player.tell("§r§e§s§e§t§x§a§e§r§o") // Reset xaero settings
-				player.persistentData.minimap = true
-			}
-			return 1
+	if(player.inventory.find('civ_tfg:pocket_gps') > -1) {
+		if (!player.persistentData.minimap) {
+			unlockMap(player)
 		}
 	}
-	if (player.persistentData.minimap) {
-		player.tell("§n§o§m§i§n§i§m§a§p") // Lock the minimap
-		player.persistentData.minimap = false
+	else {
+		if (player.persistentData.minimap) {
+			lockMap(player)
+		}
 	}
-	return 1
 })
 
 // Disable map on login if persistent flag is not set
 PlayerEvents.loggedIn(event => {
 	const player = event.player
 	if (player.persistentData.minimap == null) {
-		player.tell("§n§o§m§i§n§i§m§a§p") // Lock the minimap
-		player.persistentData.minimap = false
+		lockMap(player)
 	}
 	return 1
+})
+
+// Disables the map on respawn
+PlayerEvents.respawned(event => {
+	const player = event.player
+
+	if(!player.persistentData.minimap) {
+		lockMap(player)
+	}
 })

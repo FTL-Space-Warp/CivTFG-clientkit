@@ -7,14 +7,14 @@
 		"ground_state": {
 			"type": "minecraft:simple_state_provider",
 			"state": {
-				"Name": "tfc:kaolin_clay_grass"
+				"Name": "tfc:clay_grass/silt"
 			}
 		},
 		"replaceable": "#tfg:lush_ground_replaceable",
 		"surface": "floor",
 		"vegetation_chance": 0.6,
 		"vegetation_feature": {
-			"feature": "tfg:nether/terrain/clay_patch_kaolin_vegetation",
+			"feature": "tfg:nether/terrain/clay_patch_vegetation",
 			"placement": []
 		},
 		"vertical_range": 3,

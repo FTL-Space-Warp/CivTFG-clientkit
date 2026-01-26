@@ -20,7 +20,7 @@ oldDeathpoints:true
 distance:1
 lockNorth:true
 zoom:0
-minimapSize:130
+minimapSize:0
 chunkGrid:-1
 slimeChunks:false
 mapSafeMode:false
@@ -90,7 +90,7 @@ waypointDistancePrecision:1
 mainDotSize:2
 partialYTeleportation:true
 deleteReachedDeathpoints:true
-hideMinimapUnderScreen:false
+hideMinimapUnderScreen:true
 hideMinimapUnderF3:true
 manualCaveModeStartAuto:true
 manualCaveModeStart:-1

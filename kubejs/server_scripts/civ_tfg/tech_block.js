@@ -68,7 +68,7 @@ ServerEvents.recipes(event => {
 
     global.tier_items.slice(global.currentTier).forEach((tier) => {
         tier.forEach(item => {
-            console.log("removed " + item)
+            //console.log("removed " + item)
             event.remove({ output: item });
         })
     })

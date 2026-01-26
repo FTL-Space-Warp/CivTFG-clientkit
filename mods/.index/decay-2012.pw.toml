@@ -1,0 +1,16 @@
+filename = 'decay_2012-1.20.1-2.0.1.jar'
+name = 'Decay 2012'
+side = 'both'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'c9290eefa38a51fca425af0d45dfcd46fe050483'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5485720
+project-id = 676521

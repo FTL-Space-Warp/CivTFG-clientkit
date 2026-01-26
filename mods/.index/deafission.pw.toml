@@ -1,0 +1,16 @@
+filename = 'deafission-1.20.1-0.15.4.jar'
+name = "Dea's Fission"
+side = 'both'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'beta'
+
+[download]
+hash = '5b814421715f3f15606a4b2ecc23816432c6911c'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7305261
+project-id = 1354541

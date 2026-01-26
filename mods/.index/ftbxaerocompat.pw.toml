@@ -1,0 +1,16 @@
+filename = 'ftbxaerocompat-forge-1.1.1.jar'
+name = "FTB Chunks x Xaero's Compat"
+side = 'client'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+
+[download]
+hash = 'c36353b31e1e613294609730d3e01bb49e0cf7bd'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7398199
+project-id = 1357724

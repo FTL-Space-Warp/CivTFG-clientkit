@@ -26,8 +26,8 @@
 ### Maps
 - Xaero's map and minimap are now unlocked by crating a pocket GPS after reaching the moon
 - Map atlases, displaying a minimap and coordinates, are available in the mechanical age
-- The FTB chunks map has been disabled and the claim manager has been resized
-![atlas](https://media.discordapp.net/attachments/1459531887092437085/1459532005959143444/Screenshot_from_2026-01-10_12-29-50.png?ex=697dfc9b&is=697cab1b&hm=92af75f063f9767983048e31524b943c2cf5f7832d180dbf78d72b1c39cb0cef&=&format=webp&quality=lossless)
+- The FTB chunks map has been disabled and the claim manager has been resized  
+![atlas](https://media.discordapp.net/attachments/1459531887092437085/1459532005959143444/Screenshot_from_2026-01-10_12-29-50.png?ex=697dfc9b&is=697cab1b&hm=92af75f063f9767983048e31524b943c2cf5f7832d180dbf78d72b1c39cb0cef&=&format=webp&quality=lossless)  
 ![gps](https://media.discordapp.net/attachments/1459531887092437085/1459532006538088634/Screenshot_from_2026-01-10_12-29-58.png?ex=697dfc9b&is=697cab1b&hm=3e5191d989b8c15fa9c5b8b2a1da2ce7dfa280d42dbf78693b423f8b133db5f7&=&format=webp&quality=lossless)
 
 ### Balancing
@@ -38,10 +38,10 @@
 
 ### Tiers
 - The server has temporary locks, removing the crafting recipes for machine hulls above a certain tier
-  You can view the currently locked tier by using the `/tier` command
-- Removing a lock and progressing to the next tier requires sacrificing a certain number of materials
-  Every player contributes materials to the same pool and the lock is removed for everyone upon     completion, regardles of who contributed
-- Manual action from a moderator and a server restart is still required for a lock to be removed upon completion
+  You can view the currently locked tier and the progress towards the next one by using the `/tier` command
+- Removing a lock and progressing to the next tier requires sacrificing a certain number of materials using the `/tier submit` command
+  Every player contributes materials to the same pool and the lock is removed for everyone upon completion, regardles of who contributed
+- Manual action from a moderator and a server restart is still required for a lock to be removed upon completion  
 ![progress](https://media.discordapp.net/attachments/1458169825078808670/1466203594251309056/image.png?ex=697dde41&is=697c8cc1&hm=a91e4d60b7845a66d5fecfcb2d314ac41b0cf7607d4c1ae189056c206d045ba5&=&format=webp&quality=lossless)
 
 ### Other

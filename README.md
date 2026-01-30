@@ -27,8 +27,8 @@
 - Xaero's map and minimap are now unlocked by crating a pocket GPS after reaching the moon
 - Map atlases, displaying a minimap and coordinates, are available in the mechanical age
 - The FTB chunks map has been disabled and the claim manager has been resized
-(map atlas)[https://media.discordapp.net/attachments/1459531887092437085/1459532005959143444/Screenshot_from_2026-01-10_12-29-50.png?ex=697dfc9b&is=697cab1b&hm=92af75f063f9767983048e31524b943c2cf5f7832d180dbf78d72b1c39cb0cef&=&format=webp&quality=lossless]
-(gps item)[https://media.discordapp.net/attachments/1459531887092437085/1459532006538088634/Screenshot_from_2026-01-10_12-29-58.png?ex=697dfc9b&is=697cab1b&hm=3e5191d989b8c15fa9c5b8b2a1da2ce7dfa280d42dbf78693b423f8b133db5f7&=&format=webp&quality=lossless]
+[map atlas](https://media.discordapp.net/attachments/1459531887092437085/1459532005959143444/Screenshot_from_2026-01-10_12-29-50.png?ex=697dfc9b&is=697cab1b&hm=92af75f063f9767983048e31524b943c2cf5f7832d180dbf78d72b1c39cb0cef&=&format=webp&quality=lossless)
+[gps item](https://media.discordapp.net/attachments/1459531887092437085/1459532006538088634/Screenshot_from_2026-01-10_12-29-58.png?ex=697dfc9b&is=697cab1b&hm=3e5191d989b8c15fa9c5b8b2a1da2ce7dfa280d42dbf78693b423f8b133db5f7&=&format=webp&quality=lossless)
 
 ### Balancing
 - Rowboats are now made with bronze instead of iron

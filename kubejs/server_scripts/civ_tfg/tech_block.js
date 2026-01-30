@@ -1,26 +1,7 @@
 // priority: -1000
 
-/*
-const tier_recipes = [
-    ['tfc:crafting/metal/anvil/copper'],
-    ['tfc:crafting/metal/anvil/bronze', 'tfc:crafting/metal/anvil/bismuth_bronze', 'tfc:crafting/metal/anvil/black_bronze'],
-    ['tfc:crafting/metal/anvil/wrought_iron'],
-    ['tfc:crafting/metal/anvil/steel'],
-    ['tfc:crafting/metal/anvil/black_steel'],
-    ['tfc:crafting/metal/anvil/red_steel', 'tfc:crafting/metal/anvil/blue_steel'],
-    ['gtceu:shaped/lv_machine_hull', 'gtceu:assembler/hull_lv'],//['gtceu:basic_electronic_circuit'],
-    ['gtceu:shaped/mv_machine_hull', 'gtceu:assembler/hull_mv', 'gtceu:assembler/hull_mv_annealed'],//['gtceu:good_electronic_circuit'],
-    ['gtceu:shaped/hv_machine_hull', 'gtceu:assembler/hull_hv', 'gtceu:assembler/hull_hv_annealed'],//['gtceu:advanced_integrated_circuit'],
-    ['gtceu:shaped/ev_machine_hull', 'gtceu:assembler/hull_ev'],//['gtceu:micro_processor_computer],
-    ['gtceu:shaped/iv_machine_hull', 'gtceu:assembler/hull_iv'],//['gtceu:micro_processor_mainframe'],
-    ['gtceu:shaped/luv_machine_hull', 'gtceu:assembler/hull_luv'],//['gtceu:nano_processor_mainframe'],
-    ['gtceu:shaped/zpm_machine_hull', 'gtceu:assembler/hull_zpm'],//['gtceu:quantum_processor_mainframe']
-    ['gtceu:shaped/uv_machine_hull', 'gtceu:assembler/hull_uv'],
-    ['gtceu:shaped/uhv_machine_hull', 'gtceu:assembler/hull_uhv']
-]
-*/
 
-global.tier_items = [
+const tier_items = [
     ['tfc:metal/anvil/copper'],
     ['tfc:metal/anvil/bronze', 'tfc:metal/anvil/bismuth_bronze', 'tfc:metal/anvil/black_bronze'],
     ['tfc:metal/anvil/wrought_iron'],
@@ -38,8 +19,26 @@ global.tier_items = [
     ['gtceu:uhv_machine_hull']
 ]
 
+const tier_costs = [
+    {"minecraft:copper_ingot": 64}, // copper
+    {"gtceu:bronze_ingot": 64}, // bronze
+    {"gtceu:wrought_iron_ingot": 64}, // iron
+    {"gtceu:steel_ingot": 64}, // steel
+    {"tfc:metal/ingot/black_steel": 64}, // black_steel
+    {"tfc:metal/ingot/red_steel": 32, "tfc:metal/ingot/blue_steel": 32}, // red_steel
+    {"tfg:lv_universal_circuit": 128}, // LV
+    {"tfg:mv_universal_circuit": 128}, // MV
+    {"tfg:hv_universal_circuit": 128}, // HV
+    {"tfg:ev_universal_circuit": 128}, // EV
+    {"tfg:iv_universal_circuit": 128}, // IV
+    {"tfg:luv_universal_circuit": 128}, // LuV
+    {"tfg:zpm_universal_circuit": 128}, // ZPM
+    {"tfg:uv_universal_circuit": 128}, // UV
+    {"tfg:uhv_universal_circuit": 128}, // UHV
+]
 
-global.progression_tiers = {
+
+const progression_tiers = {
     copper: 0,
     bronze: 1,
     iron: 2,
@@ -54,21 +53,22 @@ global.progression_tiers = {
     LuV: 11,
     ZPM: 12,
     UV: 13,
-    UHV: 14
+    UHV: 14,
+    none: 15
 }
 
 // Variable for the current tech tier
-global.currentTier = global.progression_tiers.MV
+const current_tier = progression_tiers.none
 
 
 // Delete recipes up to the desired tier
 ServerEvents.recipes(event => {
-    //const tiers = global.progression_tiers.reverse()
-    console.log(global.currentTier)
+    console.log(current_tier)
 
-    global.tier_items.slice(global.currentTier).forEach((tier) => {
+    if(current_tier == 15) return 1
+
+    tier_items.slice(current_tier).forEach((tier) => {
         tier.forEach(item => {
-            //console.log("removed " + item)
             event.remove({ output: item });
         })
     })
@@ -81,17 +81,143 @@ ServerEvents.commandRegistry(event => {
     const {commands: Commands, arguments: Arguments } = event
 
     event.register(
-    Commands.literal('tier')
+        Commands.literal('tier')
 
-    // Runs with no arguments
-    .executes(ctx => {
-        const sender = ctx.source.entity;
-        const server = ctx.source.server;
-                
-        if(sender) sender.tell("Current tier is: " + Object.keys(global.progression_tiers)[parseInt(global.currentTier)]);
-        else server.tell("Current tier is: " + Object.keys(global.progression_tiers)[parseInt(global.currentTier)]);
-        
-        return 1
-    })
+        // Runs with no arguments, query current tier and progress
+        .executes(ctx => {
+            const sender = ctx.source.entity
+            const server = ctx.source.server
+                    
+            if (sender) {
+                if (current_tier != 15) {
+                    let tier_msg = getProgress(server)
+                    if (tier_msg) {
+                        tier_msg.forEach(line => {
+                            sender.tell(line)
+                        })
+                    } else {
+                        sender.tell("null")
+                    }
+                } else sender.tell("No tier enabled!")
+            } else {
+                if (current_tier != 15) {
+                    let tier_msg = getProgress(server)
+                    if (tier_msg) {
+                        tier_msg.forEach(line => {
+                            server.tell(line)
+                        })
+                    } else {
+                        server.tell("null")
+                    }
+                } else sender.tell("No tier enabled!")
+            }
+            return 1
+        })
+
+        // Submit currently held items and add them to the progress
+        .then(Commands.literal("submit")
+            .executes(ctx => {
+                const sender = ctx.source.entity
+                if (sender) {
+                    sender.tell("Use §e/tier submit confirm")
+                    sender.tell("§4Warning:§f This will consume any items matching the current tier's requirement from your inventory and add them to the progress")
+                }
+                return 1
+            })
+            .then(Commands.literal("confirm")
+                .executes(ctx => {
+                    const sender = ctx.source.entity
+                    const server = ctx.source.server
+
+                    if (current_tier != 15) {
+                        if (sender) {
+                            let msg = addProgress(server, sender)
+                            if (msg) {
+                                msg.forEach(line => {
+                                    sender.tell(line)
+                                })
+                            }
+                        }
+                    }
+                    return 1
+                })
+            )
+        )
     )
 })
+
+// Return a message containing the progress towards the next tier 
+function getProgress(server) {
+    // Initialize persistentData if it's null or if 
+    if (server.persistentData.tierProgress?.tier !== current_tier) server.persistentData.tierProgress = { tier: current_tier }
+    const spent_items = server.persistentData.tierProgress
+
+    const requirements = tier_costs[current_tier]
+    const keys = Object.keys(requirements)
+
+    const outputLines = [
+        "-".repeat(25),
+        "Current tier is: §e" + Object.keys(progression_tiers)[parseInt(current_tier)],
+        "Required for next tier:"
+    ]
+
+    // Handle missing costs gracefully
+    if (keys.length === 0) {
+        return null
+    } else {
+        let total_spent = 0
+        let total_required = 0
+        keys.forEach(item => {
+            const required = requirements[item] ?? 0
+            total_required += required
+            const spent = spent_items[item] ?? 0
+            total_spent += spent
+            outputLines.push(`- §e${Item.of(item).displayName.string.slice(4, -1)}: §f${spent}/${required}`)
+        })
+        
+        let progress_bar = Math.round(50 * total_spent / total_required)
+        outputLines.push("[§2" + "|".repeat(progress_bar) + "§4" + "|".repeat(50 - progress_bar) + `§f] ${progress_bar * 2}%`)
+    }
+    return outputLines
+}
+
+
+// Remove required items in a player's inventory and add them to the server's progress
+function addProgress(server, player) {    
+    // Initialize persistentData if it's null
+    if (server.persistentData.tierProgress?.tier !== current_tier) server.persistentData.tierProgress = { tier: current_tier }
+    const spent_items = server.persistentData.tierProgress
+
+    const requirements = tier_costs[current_tier]
+    const keys = Object.keys(requirements)
+    const outputLines = []
+
+
+    // Handle missing costs gracefully
+    if (keys.length === 0) {
+        return null
+    } else {
+        keys.forEach(item => {
+            const required = requirements[item] ?? 0
+            const spent = spent_items[item] ?? 0
+            if (spent > required) {
+                return 0
+            }
+            const held_items = player.inventory.count(item)
+            const consumed_items = Math.min(held_items, required - spent)
+            if (consumed_items) {
+                server.runCommandSilent(`clear ${player.name.string} ${item} ${consumed_items}`)
+                outputLines.push(`- §e${Item.of(item).displayName.string.slice(4, -1)}: §f${consumed_items}`)
+                server.persistentData.tierProgress[item] = spent + consumed_items
+                console.log(server.persistentData.tierProgress)
+            }
+        })
+        if (outputLines.length) {
+            outputLines.unshift("Items added to the progress:")
+            outputLines.unshift("-".repeat(25))
+        } else {
+            outputLines.push("None of the required items were found!")
+        }
+    }
+    return outputLines
+}
